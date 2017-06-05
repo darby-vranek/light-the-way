@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Search for Resources</title>
+	</head>
+	<body>
+		<h1>Search By Tag:</h1>
+		{% for tag in tags %}
+		<form action='/select/{{tag.id}}-{{active_search}}' method='get'>
+			<input type='submit' value={{tag.name}} />
+		</form>
+		{% endfor %}
+
+		<h1>Resources:</h1>
+		{% for resource in resources %}
+		<h2><a href="{{resource.link}}">{{resource.name}}</a></h2>
+		<p>{{resource.description}}</p>
+		{% endfor %}
+	</body>
+</html>
