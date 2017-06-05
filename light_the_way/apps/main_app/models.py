@@ -7,11 +7,17 @@ class Tag(models.Model):
 	date_added = models.DateField(auto_now_add=True)
 	date_updated = models.DateField(auto_now=True)
 
+	def __str__(self):
+		return self.name
+
 
 class Category(models.Model):
 	name = models.CharField(max_length=100)
 	date_added = models.DateField(auto_now_add=True)
 	date_updated = models.DateField(auto_now=True)
+
+	def __str__(self):
+		return self.name
 
 
 class Resource(models.Model):
@@ -21,3 +27,6 @@ class Resource(models.Model):
 	tags = models.ManyToManyField(Tag)
 	date_added = models.DateField(auto_now_add=True)
 	date_updated = models.DateField(auto_now=True)
+
+	def __str__(self):
+		return self.name
