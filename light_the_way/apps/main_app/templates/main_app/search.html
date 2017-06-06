@@ -8,9 +8,13 @@
 		<h1>Search By Tag:</h1>
 		{% for tag in tags %}
 		<form action='/select/{{tag.id}}-{{active_search}}' method='get'>
-			<input type='submit' value={{tag.name}} />
+			<input type='submit' value='{{tag.name}}' />
 		</form>
 		{% endfor %}
+		<p></p>
+		<form action="/show" method="get">
+			<input type="submit" value="Clear Filters">
+		</form>
 
 		<h1>Resources:</h1>
 		{% for resource in resources %}

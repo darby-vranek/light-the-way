@@ -8,7 +8,7 @@ class Tag(models.Model):
 	date_updated = models.DateField(auto_now=True)
 
 	def __str__(self):
-		return self.name
+		return '#' + self.name
 
 
 class Category(models.Model):
@@ -24,7 +24,8 @@ class Resource(models.Model):
 	name = models.CharField(max_length=200)
 	link = models.URLField()
 	description = models.TextField(default='')
-	tags = models.ManyToManyField(Tag)
+	tags = models.ManyToManyField(Tag, related_name='tags')
+	required_tags = models.ManyToManyField(Tag, related_name='required_tags')
 	date_added = models.DateField(auto_now_add=True)
 	date_updated = models.DateField(auto_now=True)
 
